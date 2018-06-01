@@ -12,7 +12,7 @@ folderdir="../bbc/"
 cat(folderdir, recursive = TRUE)
 
 #Carregamento dos arquivos texto
-CorpusVar <- Corpus(DirSource(folderdir, encoding = "UTF-8",recursive =FALSE, ignore.case = FALSE, mode = "text"),readerControl=list(reader=readPlain,language="en"))
+CorpusVar <- Corpus(DirSource(folderdir, encoding = "UTF-8",recursive =TRUE, ignore.case = FALSE, mode = "text"),readerControl=list(reader=readPlain,language="en"))
 
 #Convertendo o texto para minusculas
 CorpusVar <- tm_map (CorpusVar, content_transformer(tolower))
@@ -41,5 +41,5 @@ inspect(tdm)
 #Saida dos dados em arquivo separado por virgula
 m <- as.matrix(tdm)
 dim(m)
-write.csv(m, file="C:/Users/Felipe/Desktop/bbc/dtm3.csv")
+write.csv(m, file=".../bbc/dtm3.csv")
 
